@@ -40,10 +40,13 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+
+    'reservations.apps.ReservationConfig',
+    'vehicles.apps.VehicleConfig'
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.openapi.AutoSchema',
 }
 
 MIDDLEWARE = [
@@ -55,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
 ]
 
 CORS_ORIGIN_WHITELIST = [
