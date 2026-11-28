@@ -9,6 +9,9 @@ class Vehicle(models.Model):
     plate = PlateField(unique=True)
     address = AddressField()
 
+    def __str__(self):
+        return f"{self.brand} {self.model} - {self.plate}"
+
 
 
 

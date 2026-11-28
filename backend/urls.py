@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
     path('schema/', get_schema_view(title=API_TITLE)),
-    path('api/v1/vehicles', include('vehicles.urls')),
+    path('api/v1/vehicles/', include('vehicles.urls')),
 
 
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
