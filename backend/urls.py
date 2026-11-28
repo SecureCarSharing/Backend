@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_spectacular.views import SpectacularSwaggerView, SpectacularRedocView, SpectacularAPIView
 #from rest_framework.documentation import include_docs_urls
 from rest_framework.schemas import get_schema_view
 
@@ -27,4 +28,11 @@ urlpatterns = [
     # path('docs/', include_docs_urls(title=API_TITLE, description=API_DESCRIPTION)),
     path('schema/', get_schema_view(title=API_TITLE)),
     path('api/v1/vehicles', include('vehicles.urls')),
+
+
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+
+    path('api/docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+
 ]

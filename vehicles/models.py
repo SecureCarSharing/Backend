@@ -1,9 +1,14 @@
 from django.db import models
 from core.fields import AddressField
-from .validators import validate_brand
+from .fields import PlateField, BrandField, ModelNameField
+
 
 class Vehicle(models.Model):
-    brand = models.CharField(max_length=100, validators=[validate_brand])
-    model = models.CharField(max_length=100)
-    plate = models.CharField(max_length=100)
+    brand = BrandField()
+    model = ModelNameField()
+    plate = PlateField(unique=True)
     address = AddressField()
+
+
+
+
